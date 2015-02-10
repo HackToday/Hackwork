@@ -1,0 +1,37 @@
+1. Three nodes
+  Node1: local work deploy machine
+  Node2: Master and Etcd server
+  Node3: Minion
+  
+  
+2. Clone Code 
+git clone https://github.com/eparis/kubernetes-ansible.git
+cd kubernetes-ansible 
+
+3. Configuration
+$ cat group_vars/all.yml 
+ansible_ssh_user: fedora
+kube_service_addresses: 10.254.0.0/16 # MUST be defined as a range not used in your infrastructure
+kube_overlay_ip: 4.0.0.0 # defined if using flannel as the overlay network
+kube_overlay_prefix: 16 # defined if using flannel as the overlay network
+
+$ cat inventory 
+[masters]
+a.b.c.d
+
+[etcd]
+a.b.c.d
+
+[minions]
+e.f.g.h kube_ip_addr=10.0.1.0
+
+Note: a.b.c.d and e.f.g.h is example of ips
+fedora is the ssh user
+
+Other nodes should allow Node1 ssh without password
+
+4. Network Hack 
+ansible-playbook -i inventory old-network-config/hack-ovs.yml
+
+4. Setup Kubernetes cluster
+ansible-playbook -i inventory setup.yml
