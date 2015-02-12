@@ -1,0 +1,37 @@
+[[local|localrc]]
+# Modify to your environment
+FLOATING_RANGE=10.0.2.0/24
+PUBLIC_NETWORK_GATEWAY=10.0.2.2
+PUBLIC_INTERFACE=eth2
+
+HOST_IP=10.10.10.96
+# Credentials
+ADMIN_PASSWORD=password
+DATABASE_PASSWORD=password
+RABBIT_PASSWORD=password
+SERVICE_PASSWORD=password
+SERVICE_TOKEN=password
+
+# Enable Neutron which is required by Magnum and disable nova-network.
+disable_service n-net
+enable_service q-svc
+enable_service q-agt
+enable_service q-dhcp
+enable_service q-l3
+enable_service q-meta
+enable_service neutron
+
+
+FIXED_RANGE=10.26.20.0/24
+NETWORK_GATEWAY=10.26.20.1
+Q_USE_SECGROUP=True
+ENABLE_TENANT_VLANS=True
+TENANT_VLAN_RANGE=
+
+PHYSICAL_NETWORK=public
+OVS_PHYSICAL_BRIDGE=br-ex
+
+# Log all output to files
+LOGFILE=$HOME/devstack.log
+SCREEN_LOGDIR=$HOME/logs
+
