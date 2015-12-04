@@ -1,0 +1,9 @@
+These examples are used to show linux namespace magic:
+
+
+
+
+Refer:
+1. https://lwn.net/Articles/531114/
+2. http://blog.yadutaf.fr/2013/12/22/introduction-to-linux-namespaces-part-1-uts/
+3. http://man7.org/linux/man-pages/man7/user_namespaces.7.html
