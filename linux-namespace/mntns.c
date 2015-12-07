@@ -34,7 +34,7 @@ int child_main(void* arg)
   sethostname("In-Namespace", 12);
 
   // remount "/proc" to get accurate "top" && "ps" output
-  mount("proc", "/proc", "proc", 0, NULL);
+  mount("proc", "/proc", "proc", MS_PRIVATE | MS_REC, NULL);
   // not work for the below .......... other shell stil can view same mount
   /*if(mount("none", "/mytmp", "tmpfs", 0, "") != 0) {
       fprintf(stderr, "failed to mount tmpfs %s\n", strerror(errno));
