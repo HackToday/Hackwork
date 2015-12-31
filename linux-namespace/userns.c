@@ -2,6 +2,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <sys/mount.h>
+#include <sys/utsname.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -11,6 +12,7 @@
 #include <limits.h>
 #include <fcntl.h>
 #include <errno.h>
+#include <linux/version.h>
 
 
 #define STACK_SIZE (1024 * 1024)
@@ -111,8 +113,10 @@ int main(int argc, char *argv[])
       update_map(uid_map, map_path);
   }
   if (gid_map != NULL) {
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,19,0)
       snprintf(map_path, PATH_MAX, "/proc/%ld/setgroups", (long)child_pid);
       update_map("deny", map_path);
+#endif
       snprintf(map_path, PATH_MAX, "/proc/%ld/gid_map", (long)child_pid);
       update_map(gid_map, map_path);
   }
