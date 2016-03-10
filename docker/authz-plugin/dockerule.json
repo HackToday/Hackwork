@@ -1,0 +1,5 @@
+{
+	"container:create": "admin",
+	"container:getall": "user",
+	"image:getall": "user"
+}
