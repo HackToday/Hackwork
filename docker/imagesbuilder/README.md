@@ -15,7 +15,7 @@ Build the image:
 
 Start use it:
 	
-	docker run -it --rm -v `pwd`:/go bash
+	docker run -it --rm -v `pwd`:/go golangdevenv:1.0 bash
 
 ## TODO List
 
