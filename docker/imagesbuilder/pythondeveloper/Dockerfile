@@ -3,7 +3,7 @@ MAINTAINER Kai Qiang Wu
 
 ADD vimrc /
 
-RUN sed -i 's/archive.ubuntu.com/cn.archive.ubuntu.com/g'  /etc/apt/sources.list && \
+RUN sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/g'  /etc/apt/sources.list && \
   apt-get update && apt-get install -y vim git python python2.7-dev build-essential cmake ack-grep exuberant-ctags && \
   adduser dev --disabled-password --gecos "" && \
   echo "ALL            ALL = (ALL) NOPASSWD: ALL" >> /etc/sudoers && \
@@ -27,8 +27,8 @@ RUN mkdir -p ~/.vim/bundle && \
   git clone --depth 1 https://github.com/mileszs/ack.vim.git && \
   git clone --depth 1 https://github.com/ervandew/supertab.git && \
   git clone --depth 1 https://github.com/majutsushi/tagbar.git && \
-  git clone --depth 1 https://github.com/mbbill/undotree.git
-  git clone --depth 1 https://github.com/godlygeek/tabular.git
+  git clone --depth 1 https://github.com/mbbill/undotree.git && \
+  git clone --depth 1 https://github.com/godlygeek/tabular.git && \
   git clone --depth 1 https://github.com/plasticboy/vim-markdown.git && \
   git clone --depth 1 https://github.com/elzr/vim-json.git && \
   git clone --depth 1 https://github.com/ntpeters/vim-better-whitespace.git
