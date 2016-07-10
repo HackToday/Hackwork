@@ -23,6 +23,12 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'mileszs/ack.vim'
 Plugin 'ervandew/supertab'
 Plugin 'majutsushi/tagbar'
+Plugin 'mbbill/undotree'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'elzr/vim-json'
+Plugin 'ntpeters/vim-better-whitespace'
+
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 
 
@@ -33,6 +39,17 @@ filetype plugin indent on    " required
 set splitbelow
 set splitright
 set nu
+set tabstop=4
+set shiftwidth=4
+nnoremap <C-Insert> :tabnew<CR>
+nnoremap <C-Delete> :tabclose<CR>
+nmap <C-Left> :tabprevious<CR>
+nmap <C-Right> :tabnext<CR>
+
+"buffer related
+nnoremap gb  :bprevious<CR>
+nnoremap gB   :bnext<CR>
+set hidden
 
 "split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -56,6 +73,9 @@ map <C-n> :NERDTreeToggle<CR>
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
+
+"ctrlp configuration
+nnoremap <C-\> :CtrlPBuffer<CR>
 
 "syntastic configuration
 set statusline+=%#warningmsg#
@@ -92,3 +112,11 @@ omap / <Plug>(easymotion-tn)
 
 "tagbar configuration
 nmap <C-m> :TagbarToggle<CR>
+
+"undotree configuration
+nnoremap <F5> :UndotreeToggle<cr>
+
+
+"vim-markdown configuration
+au BufRead,BufNewFile *.md set filetype=markdown
+set nofoldenable

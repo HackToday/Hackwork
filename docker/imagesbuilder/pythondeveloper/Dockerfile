@@ -3,7 +3,7 @@ MAINTAINER Kai Qiang Wu
 
 ADD vimrc /
 
-RUN sed -i 's/archive.ubuntu.com/cn.archive.ubuntu.com/g'  /etc/apt/sources.list && \ 
+RUN sed -i 's/archive.ubuntu.com/cn.archive.ubuntu.com/g'  /etc/apt/sources.list && \
   apt-get update && apt-get install -y vim git python python2.7-dev build-essential cmake ack-grep exuberant-ctags && \
   adduser dev --disabled-password --gecos "" && \
   echo "ALL            ALL = (ALL) NOPASSWD: ALL" >> /etc/sudoers && \
@@ -20,14 +20,19 @@ RUN mkdir -p ~/.vim/bundle && \
   git clone --depth 1 https://github.com/kien/ctrlp.vim.git && \
   git clone --depth 1 https://github.com/scrooloose/nerdtree.git && \
   git clone --depth 1 https://github.com/tpope/vim-fugitive.git && \
-  git clone --depth 1 https://github.com/vim-airline/vim-airline-themes.git && \   
+  git clone --depth 1 https://github.com/vim-airline/vim-airline-themes.git && \
   git clone --depth 1 https://github.com/vim-airline/vim-airline.git && \
   git clone --depth 1 https://github.com/scrooloose/syntastic.git && \
   git clone --depth 1 https://github.com/easymotion/vim-easymotion.git && \
   git clone --depth 1 https://github.com/mileszs/ack.vim.git && \
   git clone --depth 1 https://github.com/ervandew/supertab.git && \
-  git clone --depth 1 https://github.com/majutsushi/tagbar.git
-      
+  git clone --depth 1 https://github.com/majutsushi/tagbar.git && \
+  git clone --depth 1 https://github.com/mbbill/undotree.git
+  git clone --depth 1 https://github.com/godlygeek/tabular.git
+  git clone --depth 1 https://github.com/plasticboy/vim-markdown.git && \
+  git clone --depth 1 https://github.com/elzr/vim-json.git && \
+  git clone --depth 1 https://github.com/ntpeters/vim-better-whitespace.git
+
 RUN cp /vimrc ~/.vimrc && \
   vim +PluginInstall +qall && \
   cd ~/.vim/bundle/YouCompleteMe && git submodule update --init --recursive && \
@@ -35,5 +40,5 @@ RUN cp /vimrc ~/.vimrc && \
 
 RUN rm -rf Vundle.vim/.git tagbar/.git nerdtree/.git vim-easymotion/.git \
     vim-fugitive/.git vim-airline/.git vim-airline-themes/.git syntastic/.git \
-    supertab/.git ack.vim/.git ctrlp.vim/.git YouCompleteMe/.git vim-gitgutter/.git 
-  
+    supertab/.git ack.vim/.git ctrlp.vim/.git YouCompleteMe/.git vim-gitgutter/.git \
+    undotree/.git tabular/.git vim-markdown/.git vim-json/.git vim-better-whitespace/.git
