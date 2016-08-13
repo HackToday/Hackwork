@@ -4,7 +4,7 @@ MAINTAINER Kai Qiang Wu
 ADD vimrc /
 
 RUN sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/g'  /etc/apt/sources.list && \
-  apt-get update && apt-get install -y vim git python python2.7-dev build-essential cmake ack-grep exuberant-ctags && \
+  apt-get update && apt-get install -y sudo vim git python python2.7-dev build-essential cmake ack-grep exuberant-ctags && \
   adduser dev --disabled-password --gecos "" && \
   echo "ALL            ALL = (ALL) NOPASSWD: ALL" >> /etc/sudoers && \
   chown -R dev:dev /home/dev
