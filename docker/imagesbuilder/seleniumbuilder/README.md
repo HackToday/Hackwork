@@ -35,4 +35,4 @@ And also nodes can run different browser-based cases, like `Firefox`, `Chrome` e
 
 ## How to run the Image?
 
-Refer the same as before[README.md](https://github.com/HackToday/docker-selenium)
+Refer the same as before [README.md](https://github.com/HackToday/docker-selenium)
