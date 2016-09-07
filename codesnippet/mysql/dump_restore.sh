@@ -4,7 +4,12 @@ mysqldump db_name table_name > table_name.sql
 
 #dump from remote db
 
+## this is for table dump
 mysqldump -u username -h db_host -p db_name table_name > table_name.sql
+
+## this is for database
+mysqldump -u username -h db_host -p db_name > db_name.sql
+
 
 #restore
 
