@@ -31,7 +31,10 @@ printf 'DE:AD:BE:EF:%02X:%02X\n' $((RANDOM%256)) $((RANDOM%256))
 
 ```
 
-# create qemu related script for network handy, we named it qemu-ifup, make sure make it executeable(+x)
+# create qemu related script for handy
+
+We named the following script `qemu-ifup`, make sure it executeable(+x)
+
 ```
 #!/bin/sh
 set -x
