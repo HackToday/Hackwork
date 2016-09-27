@@ -14,6 +14,10 @@ To check if you have kvm enable or default to qemu mode, can go through followin
   1. the modules are correctly loaded lsmod|grep kvm
   2. you don't have a "KVM: disabled by BIOS" line in the output of dmesg
   3. /dev/kvm exists and you have the correct rights to use it
+      Problem 1: failed to intialize kvm hypervisor: permission denied
+        Solution: chown root:kvm /dev/kvm
+      Porblem 2: qemu: could not load PC BIOS ‘bios-256k.bin’
+        Solution: yum install seabios 
 ```
 
 How to Manual Create VM  
