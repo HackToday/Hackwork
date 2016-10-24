@@ -1,0 +1,7 @@
+//refer http://tomatohater.com/2011/09/22/concatenating-strings-in-django-templates/
+
+{{ "Mary had a little"|add:" lamb." }}
+
+// old version
+
+{{ "Mary had a little"|stringformat:"s lamb." }}
