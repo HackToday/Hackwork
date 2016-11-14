@@ -66,6 +66,12 @@ you may want to change one commit in this MR. Follow the following steps:
 	git rebase --continue
 	```
 
+### Recover from deleted branch
+
+1. Use `git reflog` find SHA1 for commit ID
+2. git checkout <SHA1>
+3. Then git checkout -b [branchname]
+
 ### Reference
 
 - https://help.github.com/articles/syncing-a-fork/
