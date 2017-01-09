@@ -72,6 +72,21 @@ you may want to change one commit in this MR. Follow the following steps:
 2. git checkout <SHA1>
 3. Then git checkout -b [branchname]
 
+### Undo amended commit
+
+1. Find your ammended commit SHA1 by `git log --reflog`
+2. Reset your HEAD to any previous commit which was fine with:
+
+	```
+	git reset SHA1 --hard
+	```
+
+3. <Optional> Cherry-pick the one commit that you need on top of:
+
+	```
+	git cherry-pick SHA1
+	```
+
 ### Reference
 
 - https://help.github.com/articles/syncing-a-fork/
