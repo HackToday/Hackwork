@@ -1,0 +1,14 @@
+from django import template
+
+register = template.Library()
+
+
+@register.filter('get_value_from_dict')
+def get_value_from_dict(dict_data, key):
+    """
+    usage example {{ your_dict|get_value_from_dict:your_key }}
+	source: http://stackoverflow.com/questions/1275735/how-to-access-dictionary-element-in-django-template
+    """
+    if key:
+        return dict_data.get(key)
+
