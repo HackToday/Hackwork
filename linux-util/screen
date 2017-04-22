@@ -1,0 +1,27 @@
+vbell off 
+bell_msg ""
+startup_message off 
+
+# Tell screen how to set colors. AB = background, AF=foreground
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+#
+# Enables use of shift-PgUp and shift-PgDn
+termcapinfo xterm|xterms|xs|rxvt ti@:te@
+#
+# Enable 256 color term
+term xterm-256color
+#
+# Cache 30000 lines for scroll back
+defscrollback 30000
+
+# https://wiki.archlinux.org/index.php/GNU_Screen#Start_at_window_1
+bind c screen 1
+bind ^c screen 1
+bind 0 select 10
+screen 1
+
+hardstatus off 
+# https://bbs.archlinux.org/viewtopic.php?id=12571
+# http://man7.org/linux/man-pages/man1/screen.1.html
+hardstatus alwayslastline
+hardstatus string '%{= kG}%c %06=%-Lw%{= RW}%50>%n%f* %t%{-}%+Lw%<'
