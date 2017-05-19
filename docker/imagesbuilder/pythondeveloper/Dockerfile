@@ -31,7 +31,8 @@ RUN mkdir -p ~/.vim/bundle && \
   git clone --depth 1 https://github.com/godlygeek/tabular.git && \
   git clone --depth 1 https://github.com/plasticboy/vim-markdown.git && \
   git clone --depth 1 https://github.com/elzr/vim-json.git && \
-  git clone --depth 1 https://github.com/ntpeters/vim-better-whitespace.git
+  git clone --depth 1 https://github.com/ntpeters/vim-better-whitespace.git && \
+  apt-get install -y silversearcher-ag
 
 RUN cp /vimrc ~/.vimrc && \
   vim +PluginInstall +qall && \
