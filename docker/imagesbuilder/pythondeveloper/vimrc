@@ -120,3 +120,6 @@ nnoremap <F5> :UndotreeToggle<cr>
 "vim-markdown configuration
 au BufRead,BufNewFile *.md set filetype=markdown
 set nofoldenable
+if executable('ag')
+   let g:ackprg = '/usr/bin/ag --vimgrep'
+endif
