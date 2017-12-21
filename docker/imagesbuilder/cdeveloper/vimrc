@@ -2,6 +2,9 @@
 
 set encoding=utf-8
 
+set backspace=2 " make backspace work like most other programs
+set backspace=indent,eol,start
+
 " 让配置变更立即生效
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
