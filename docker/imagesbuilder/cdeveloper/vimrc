@@ -1,34 +1,38 @@
-" leader key default is '\'                                                                                                            
+" leader key default is '\'
+
 set encoding=utf-8
- 
+
 " 让配置变更立即生效
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
- 
+
 " >>
 " 其他
- 
+
 " 开启实时搜索功能
 set incsearch
- 
+
 " 搜索时大小写不敏感
 set ignorecase
- 
+
 " 关闭兼容模式
 set nocompatible
- 
+
 " vim 自身命令行模式智能补全
 set wildmenu
- 
-filetype off 
+
+filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
+
 call vundle#begin()
+
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tomasr/molokai'
 Plugin 'vim-scripts/phd'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'nathanaelkane/vim-indent-guides'                                                                                           Plugin 'derekwyatt/vim-fswitch'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'derekwyatt/vim-fswitch'
 Plugin 'kshenoy/vim-signature'
 Plugin 'vim-scripts/BOOKMARKS--Mark-and-Highlight-Full-Lines'
 Plugin 'majutsushi/tagbar'
@@ -49,8 +53,10 @@ Plugin 'sjl/gundo.vim'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'suan/vim-instant-markdown'
 Plugin 'lilydjwg/fcitx.vim'
+
 call vundle#end()
 filetype plugin indent on
+
 set background=dark
 colorscheme solarized
 
@@ -122,43 +128,43 @@ let g:tagbar_compact=1
 
 " 设置 ctags 对哪些代码标识符生成标签
 let g:tagbar_type_cpp = {
-    \ 'kinds' : [
-         \ 'c:classes:0:1',
-         \ 'd:macros:0:1',
-         \ 'e:enumerators:0:0',
-         \ 'f:functions:0:1',
-         \ 'g:enumeration:0:1',
-         \ 'l:local:0:1',
-         \ 'm:members:0:1',
-         \ 'n:namespaces:0:1',
-         \ 'p:functions_prototypes:0:1',
-         \ 's:structs:0:1',
-         \ 't:typedefs:0:1',
-         \ 'u:unions:0:1',
-         \ 'v:global:0:1',
-         \ 'x:external:0:1'
-     \ ],
-     \ 'sro'        : '::',
-     \ 'kind2scope' : {
-         \ 'g' : 'enum',
-         \ 'n' : 'namespace',
-         \ 'c' : 'class',
-         \ 's' : 'struct',
-         \ 'u' : 'union'
-     \ },
-     \ 'scope2kind' : {
-         \ 'enum'      : 'g',
-         \ 'namespace' : 'n',
-         \ 'class'     : 'c',
-         \ 'struct'    : 's',
-         \ 'union'     : 'u'
-     \ }
+   \ 'kinds' : [
+        \ 'c:classes:0:1',
+        \ 'd:macros:0:1',
+        \ 'e:enumerators:0:0',
+        \ 'f:functions:0:1',
+        \ 'g:enumeration:0:1',
+        \ 'l:local:0:1',
+        \ 'm:members:0:1',
+        \ 'n:namespaces:0:1',
+        \ 'p:functions_prototypes:0:1',
+        \ 's:structs:0:1',
+        \ 't:typedefs:0:1',
+        \ 'u:unions:0:1',
+        \ 'v:global:0:1',
+        \ 'x:external:0:1'
+    \ ],
+    \ 'sro'        : '::',
+    \ 'kind2scope' : {
+        \ 'g' : 'enum',
+        \ 'n' : 'namespace',
+        \ 'c' : 'class',
+        \ 's' : 'struct',
+        \ 'u' : 'union'
+    \ },
+    \ 'scope2kind' : {
+        \ 'enum'      : 'g',
+        \ 'namespace' : 'n',
+        \ 'class'     : 'c',
+        \ 'struct'    : 's',
+        \ 'union'     : 'u'
+    \ }
 \ }
 
 " 正向遍历同名标签
- nmap <Leader>tn :tnext<CR>
+nmap <Leader>tn :tnext<CR>
 " " 反向遍历同名标签
- nmap <Leader>tp :tprevious<CR>
+nmap <Leader>tp :tprevious<CR>
 
 let g:indexer_ctagsCommandLineOptions="--c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+iaSl --extra=+q "
 let g:indexer_disableCtagsWarning=1
