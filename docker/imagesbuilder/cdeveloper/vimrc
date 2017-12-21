@@ -43,6 +43,7 @@ Plugin 'vim-scripts/indexer.tar.gz'
 Plugin 'vim-scripts/DfrankUtil'
 Plugin 'vim-scripts/vimprj'
 Plugin 'dyng/ctrlsf.vim'
+Plugin 'kien/ctrlp.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-scripts/DrawIt'
@@ -86,6 +87,7 @@ set cursorcolumn
 set hlsearch
 
 " 设置状态栏主题风格
+set t_Co=256
 let g:Powerline_colorscheme='solarized256'
 " 禁止折行
 set nowrap
@@ -239,3 +241,14 @@ let g:ycm_cache_omnifunc=0
 
 " 语法关键字补全
 let g:ycm_seed_identifiers_with_syntax=1
+
+let g:ctrlp_map = '<leader>p'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_working_path_mode=0
+let g:ctrlp_match_window_bottom=1
+let g:ctrlp_max_height=15
+let g:ctrlp_match_window_reversed=0
+let g:ctrlp_mruf_max=500
+let g:ctrlp_follow_symlinks=1
+
