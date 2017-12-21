@@ -1,9 +1,9 @@
 From ubuntu:16.04
 MAINTAINER Kai Qiang Wu
 
-WORKDIR /tempwork
+WORKDIR /devwork
 
-ADD vimrc /tempwork
+ADD vimrc /devwork
 
 RUN sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/g'  /etc/apt/sources.list && \
   apt-get update && apt-get install -y gcc git python python-dev ruby-dev ncurses-dev \
@@ -26,4 +26,6 @@ RUN wget http://releases.llvm.org/5.0.0/clang+llvm-5.0.0-linux-x86_64-ubuntu16.0
   mkdir clang+llvm && tar -xvf clang+llvm-5.0.0-linux-x86_64-ubuntu16.04.tar -C clang+llvm && \
   mkdir ycm_build && cd ycm_build && \
   cmake -G "Unix Makefiles" -DUSE_SYSTEM_BOOST=ON -DPATH_TO_LLVM_ROOT=../clang+llvm/clang+llvm-5.0.0-linux-x86_64-ubuntu16.04/ .  ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp && \
-  cd ~/.vim/bundle/YouCompleteMe && ./install.py --clang-completer && rm -rf /tempwork
+  cd ~/.vim/bundle/YouCompleteMe && ./install.py --clang-completer && rm -rf /devwork/*
+
+COPY ycm_extra_conf.py /devwork/.ycm_extra_conf.py

@@ -210,6 +210,15 @@ let g:ycm_confirm_extra_conf=1
 let g:ycm_collect_identifiers_from_tags_files=0
 
 "" 引入 C++ 标准库 tags
+
+"" Run with following to get those tags:
+"" cd /usr/include/c++/5
+"" ctags -R --c++-kinds=+l+x+p --fields=+iaSl --extra=+q --language-force=c++ -f stdcpp.tags
+"" cd /usr/include/
+"" ctags -R --c-kinds=+l+x+p --fields=+lS -I __THROW,__nonnull -f sys.tags
+
+"" when you have those tags, you can uncomment the following vim config
+
 "set tags+=/usr/include/c++/5/stdcpp.tags
 "set tags+=/usr/include/sys.tags
 
