@@ -208,8 +208,11 @@ highlight PmenuSel ctermfg=2 ctermbg=3 guifg=#AFD700 guibg=#106900
 " 补全功能在注释中同样有效
 let g:ycm_complete_in_comments=1
 
-" 允许 vim 加载 .ycm_extra_conf.py 文件，提示
-let g:ycm_confirm_extra_conf=1
+" 允许 vim 加载 .ycm_extra_conf.py 文件，不提示
+let g:ycm_confirm_extra_conf=0
+
+"" https://github.com/Valloric/YouCompleteMe/issues/700
+let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
 
 " 开启 YCM 标签补全引擎
 let g:ycm_collect_identifiers_from_tags_files=0
